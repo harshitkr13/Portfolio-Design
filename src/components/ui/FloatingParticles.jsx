@@ -26,7 +26,7 @@ export default function FloatingParticles() {
       [16, 185, 129],  // green
     ];
 
-    const particles = Array.from({ length: 100 }, () => {
+    const particles = Array.from({ length: 60 }, () => {
       const color = palette[Math.floor(Math.random() * palette.length)];
       return {
         x: Math.random() * window.innerWidth,
@@ -99,8 +99,8 @@ export default function FloatingParticles() {
         for (let j = i + 1; j < particles.length; j++) {
           const q = particles[j];
           const d = Math.hypot(p.x - q.x, p.y - q.y);
-          if (d < 130) {
-            const alpha = (1 - d / 130) * 0.1;
+          if (d < 110) {
+            const alpha = (1 - d / 110) * 0.1;
             // Blend colors
             const [r2, g2, b2] = q.color;
             const mr = (r + r2) / 2;
@@ -132,7 +132,7 @@ export default function FloatingParticles() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: 1, opacity: 0.65 }}
+      style={{ zIndex: 1, opacity: 0.65, willChange: 'transform' }}
     />
   );
 }

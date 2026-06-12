@@ -364,12 +364,14 @@ function ContactForm({ inView }) {
               {/* Name + Email row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-[10px] font-mono text-white/35 uppercase tracking-widest mb-2 block">
+                  <label htmlFor="contact-name" className="text-[10px] font-mono text-white/35 uppercase tracking-widest mb-2 block">
                     Name
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
                     required
+                    autoComplete="name"
                     value={form.name}
                     onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                     onFocus={() => setFocused('name')}
@@ -380,12 +382,14 @@ function ContactForm({ inView }) {
                   />
                 </div>
                 <div>
-                  <label className="text-[10px] font-mono text-white/35 uppercase tracking-widest mb-2 block">
+                  <label htmlFor="contact-email" className="text-[10px] font-mono text-white/35 uppercase tracking-widest mb-2 block">
                     Email
                   </label>
                   <input
+                    id="contact-email"
                     type="email"
                     required
+                    autoComplete="email"
                     value={form.email}
                     onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                     onFocus={() => setFocused('email')}
@@ -399,10 +403,11 @@ function ContactForm({ inView }) {
 
               {/* Message */}
               <div>
-                <label className="text-[10px] font-mono text-white/35 uppercase tracking-widest mb-2 block">
+                <label htmlFor="contact-message" className="text-[10px] font-mono text-white/35 uppercase tracking-widest mb-2 block">
                   Message
                 </label>
                 <textarea
+                  id="contact-message"
                   required
                   rows={5}
                   value={form.message}
@@ -419,6 +424,8 @@ function ContactForm({ inView }) {
               <motion.button
                 type="submit"
                 disabled={sending}
+                aria-busy={sending}
+                aria-label={sending ? 'Sending message...' : 'Send message'}
                 whileHover={!sending ? {
                   scale: 1.01,
                   boxShadow: '0 16px 48px rgba(0,212,255,0.45)',

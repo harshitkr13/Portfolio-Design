@@ -276,6 +276,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      aria-label="Introduction"
       className="relative min-h-screen flex flex-col items-center overflow-hidden"
       style={{
         justifyContent: 'center',
@@ -569,7 +570,7 @@ export default function Hero() {
               transition={{ duration: 5, repeat: Infinity, ease: 'linear', repeatDelay: 6 }}
             />
 
-            <div className="grid grid-cols-5 divide-x divide-white/[0.05]">
+            <div className="hero-stats-grid grid grid-cols-5 divide-x divide-white/[0.05]">
               {heroStats.map((stat, i) => (
                 <motion.div
                   key={stat.value}

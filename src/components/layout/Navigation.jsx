@@ -58,8 +58,9 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Animated scroll progress bar */}
+      {/* Animated scroll progress bar — decorative */}
       <motion.div
+        aria-hidden="true"
         style={{
           scaleX,
           transformOrigin: '0% 50%',
@@ -193,7 +194,9 @@ export default function Navigation() {
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="flex flex-col gap-1 p-1"
-                aria-label="Toggle menu"
+                aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                aria-expanded={menuOpen}
+                aria-controls="mobile-menu"
               >
                 <motion.span
                   animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
@@ -220,6 +223,9 @@ export default function Navigation() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
+            id="mobile-menu"
+            role="navigation"
+            aria-label="Mobile navigation"
             initial={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
             animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
             exit={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}

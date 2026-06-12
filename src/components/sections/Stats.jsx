@@ -125,7 +125,7 @@ export default function Stats() {
   const headerInView = useInView(headerRef, { once: true });
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section id="stats" aria-label="Key Statistics" className="relative py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Animated top border */}

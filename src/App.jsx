@@ -60,6 +60,17 @@ export default function App() {
 
   return (
     <div className="relative bg-[#050505] min-h-screen overflow-x-hidden">
+      {/* Skip to main content — keyboard accessibility */}
+      <a
+        href="#hero"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:rounded-lg focus:font-medium focus:text-sm"
+        style={{
+          background: 'linear-gradient(135deg, #00d4ff, #7c3aed)',
+          color: '#fff',
+        }}
+      >
+        Skip to main content
+      </a>
       {/* ── Global deep-space ambient background ── */}
       <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 0 }}>
         {/* Primary purple nebula — top left */}
@@ -104,7 +115,7 @@ export default function App() {
       <Navigation />
 
       {/* Main sections */}
-      <main className="relative" style={{ zIndex: 10 }}>
+      <main id="main-content" role="main" className="relative" style={{ zIndex: 10 }}>
         <Hero />
         <SectionDivider color="#7c3aed" />
         <Stats />
