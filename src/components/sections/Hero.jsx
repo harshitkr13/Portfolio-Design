@@ -664,7 +664,7 @@ export default function Hero() {
             </svg>
           </MagneticBtn>
 
-          <MagneticBtn href={personalInfo.resumeUrl} download>
+          <MagneticBtn href={personalInfo.resumeUrl} target="_blank" rel="noopener noreferrer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
               <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
             </svg>
@@ -712,7 +712,7 @@ export default function Hero() {
 /* ═══════════════════════════════════════════
    MAGNETIC CTA BUTTON — IMPROVEMENT 1 + 7 + 8
 ═══════════════════════════════════════════ */
-function MagneticBtn({ children, href, primary, onClick, download }) {
+function MagneticBtn({ children, href, primary, onClick, download, target, rel }) {
   const ref = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -772,6 +772,8 @@ function MagneticBtn({ children, href, primary, onClick, download }) {
       ref={ref}
       href={href}
       download={download}
+      target={target}
+      rel={rel || (target === '_blank' ? 'noopener noreferrer' : undefined)}
       onClick={onClick}
       onMouseMove={onMove}
       onMouseLeave={onLeave}

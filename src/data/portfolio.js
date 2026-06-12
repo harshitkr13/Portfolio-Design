@@ -20,7 +20,7 @@ export const personalInfo = {
   phone: "+91 7301172455",
   github: "https://github.com/harshitkr13",
   linkedin: "https://www.linkedin.com/in/harshit-kumar-85b0542a6/",
-  resumeUrl: "#", // Replace with actual resume URL
+  resumeUrl: "https://drive.google.com/file/d/1nU_PcVxaDD-CoIj0An9zp7-AjNYPa1fe/view?usp=sharing",
 };
 
 export const stats = [
