@@ -30,7 +30,7 @@ function ImageLayer({ project, isHovered }) {
   return (
     <div className="relative overflow-hidden" style={{ height: '240px' }}>
       <motion.img
-        src={project.image}
+        src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}${project.image}`}
         alt={project.title}
         className="w-full h-full object-cover"
         animate={{ scale: isHovered ? 1.07 : 1 }}
@@ -325,7 +325,7 @@ function ProjectCard({ project, index }) {
 
             {/* Tech stack */}
             <div className="flex flex-wrap gap-1.5 mb-6">
-              {project.tech.map((t, i) => (
+              {project.tech.map((t) => (
                 <motion.span
                   key={t}
                   className="text-[11px] px-2.5 py-1 rounded-full font-mono relative overflow-hidden"
